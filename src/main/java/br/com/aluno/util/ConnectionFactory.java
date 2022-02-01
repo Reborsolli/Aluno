@@ -19,7 +19,7 @@ public class ConnectionFactory {
 	 * @return uma conexão com banco de dados
 	 */
    
-   public static Connection connectToDataBase() throws Exception {
+   public static Connection getConnection() throws Exception {
 		
 		connection = null;
 		

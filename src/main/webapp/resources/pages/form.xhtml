@@ -33,11 +33,44 @@
 
 <h:body>
 
-<button class="btn btn-success"> 
-<i class="fas fa-user-plus"></i>
-NOVO
-</button>
+<div class="letra text-center mb-1">
 
+<h:outputText value="#{title == false ? 'CADASTRO' : 'ATUALIZAR'}" /></div>
+
+<h:form id="submit" class="container col-6 text-center"  >
+    
+  <div class="form-group">
+    <label for="matricula">Matricula</label>
+    <input type="text" class="form-control" id="matricula" name="matricula" autocomplete="off" value="#{matricula}" />
+    </div>
+    
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control" id="nome" name="nome" autocomplete="off" value="#{nome}" />
+  </div>
+  
+    <div class="form-group">
+    <label for="idade">idade</label>
+    <input type="text" class="form-control" id="idade" name="idade" autocomplete="off" value="#{idade}" />
+  </div>
+ 
+<div class="text-center mt-5">
+
+<h:commandButton class="btn btn-success ml-2" value="SALVAR" action="#{alunoController.salvar}" rendered="#{title == false}" /> 
+
+<h:commandButton class="btn btn-primary ml-2" value="ATUALIZAR" action="#{alunoController.atualizar}" rendered="#{title == true}" /> 
+
+<h:commandButton class="btn btn-info ml-2" value="LIMPAR" action="#{alunoController.clear}" >
+ <f:resetValues render="submit:matricula submit:nome submit:idade" />
+
+</h:commandButton>
+
+ </div>
+
+</h:form>
+
+<!----> 
   
 </h:body>
 </html>
+
